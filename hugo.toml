@@ -1,5 +1,5 @@
-baseURL = 'https://dkko.me/'
-languageCode = 'en-us'
+baseURL = 'https://dkko.me/test=gh-pages/'
+languageCode = 'pt-br'
 title = 'Test GH Pages'
 
 theme = "PaperMod"
