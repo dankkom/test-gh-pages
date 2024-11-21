@@ -1,0 +1,5 @@
+baseURL = 'https://dkko.me/'
+languageCode = 'en-us'
+title = 'Test GH Pages'
+
+theme = "PaperMod"
