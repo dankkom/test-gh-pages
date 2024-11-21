@@ -2,4 +2,4 @@ baseURL: "https://dkko.me/test=gh-pages/"
 languageCode: "pt-br"
 title: "Test GH Pages"
 
-theme: ["github.com/adityatelange/hugo-PaperMod"]
+theme: ["PaperMod"]
