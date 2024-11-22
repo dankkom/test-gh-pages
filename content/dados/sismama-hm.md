@@ -1,7 +1,5 @@
 ---
-title: "sismama-hm"
+title: "SISMAMA-HM"
 ---
 
 {{< remote-data-table "https://cdn.statically.io/gh/dankkom/datasus-metadata/main/metadata/data/sismama-hm.json" >}}
-
-https://github.com/dankkom/datasus-metadata

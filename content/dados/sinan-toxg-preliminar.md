@@ -1,7 +1,5 @@
 ---
-title: "sinan-toxg-preliminar"
+title: "SINAN-TOXG-PRELIMINAR"
 ---
 
 {{< remote-data-table "https://cdn.statically.io/gh/dankkom/datasus-metadata/main/metadata/data/sinan-toxg-preliminar.json" >}}
-
-https://github.com/dankkom/datasus-metadata

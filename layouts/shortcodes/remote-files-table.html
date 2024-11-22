@@ -1,6 +1,8 @@
 {{ $url := index .Params 0 }}
 {{ $data := resources.GetRemote $url }}
 
+{{ $grandtotal_size := 0 }}
+
 <table class="files-table">
   <thead>
     <tr>
@@ -12,13 +14,18 @@
   <tbody>
     {{ range $data | transform.Unmarshal }}
     <tr>
-      <td>
-        ftp://ftp.datasus.gov.br{{ .full_path }}<br/>
-        <span>{{ .filename }}</span>
-      </td>
-      <td><time datetime="{{ .datetime }}">{{ .datetime }}</datetime></td>
-      <td>{{ .size | cast.ToString }} bytes</td>
+      <td>ftp://ftp.datasus.gov.br{{ .full_path }}</td>
+      <td class="center"><time datetime="{{ .datetime }}">{{ .datetime }}</time></td>
+      <td class="right">{{ math.Div .size 1000 | lang.FormatNumber 2 }} KB</td>
     </tr>
+    {{ $grandtotal_size = add $grandtotal_size .size }}
     {{ end }}
   </tbody>
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td></td>
+      <td class="right">{{ math.Div $grandtotal_size 1000000 | lang.FormatNumber 2 }} MB</td>
+    </tr>
+  </tfoot>
 </table>

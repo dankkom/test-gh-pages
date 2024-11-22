@@ -1,7 +1,5 @@
 ---
-title: "cnes-in"
+title: "CNES-IN"
 ---
 
 {{< remote-data-table "https://cdn.statically.io/gh/dankkom/datasus-metadata/main/metadata/data/cnes-in.json" >}}
-
-https://github.com/dankkom/datasus-metadata

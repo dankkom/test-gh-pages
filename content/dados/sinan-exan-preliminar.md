@@ -1,7 +1,5 @@
 ---
-title: "sinan-exan-preliminar"
+title: "SINAN-EXAN-PRELIMINAR"
 ---
 
 {{< remote-data-table "https://cdn.statically.io/gh/dankkom/datasus-metadata/main/metadata/data/sinan-exan-preliminar.json" >}}
-
-https://github.com/dankkom/datasus-metadata

@@ -1,12 +1,15 @@
 {{ $data := resources.GetRemote "https://cdn.statically.io/gh/dankkom/datasus-metadata/main/metadata/index.json" | transform.Unmarshal }}
 {{ $baseURL := .Site.BaseURL }}
 
+{{ $grandtotal_n_files := 0 }}
+{{ $grandtotal_size := 0 }}
+
 <table>
     <thead>
         <tr>
             <th>Dataset</th>
             <th>Nº de Arquivos</th>
-            <th>Tamanho Total (bytes)</th>
+            <th>Tamanho Total</th>
             <th>Última Atualização</th>
         </tr>
     </thead>
@@ -14,10 +17,20 @@
         {{ range $key, $value := $data.documentation }}
         <tr>
             <td><a href="{{ $baseURL }}documentacao/{{ $key }}">{{ $key }}</a></td>
-            <td>{{ $value.n_files }}</td>
-            <td>{{ $value.total_size | cast.ToString }}</td>
-            <td>{{ $value.latest_update }}</td>
+            <td class="center">{{ $value.n_files | lang.FormatNumber 0 }}</td>
+            <td class="right">{{ math.Div $value.total_size 1000000 | lang.FormatNumber 2 }} MB</td>
+            <td class="center"><time datetime="{{ $value.latest_update }}">{{ $value.latest_update }}</time></td>
         </tr>
+        {{ $grandtotal_n_files = add $grandtotal_n_files $value.n_files }}
+        {{ $grandtotal_size = add $grandtotal_size $value.total_size }}
         {{ end }}
     </tbody>
+    <tfoot>
+        <tr>
+            <td>Total</td>
+            <td class="center">{{ $grandtotal_n_files | lang.FormatNumber 0 }}</td>
+            <td class="right">{{ math.Div $grandtotal_size 1000000 | lang.FormatNumber 2 }} MB</td>
+            <td></td>
+        </tr>
+    </tfoot>
 </table>

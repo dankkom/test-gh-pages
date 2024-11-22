@@ -21,10 +21,25 @@ a {
   text-decoration: none;
 }
 
-.files-table {
+table {
   width: 100%;
   thead {
     background-color: dodgerblue;
     color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  td.left {
+    text-align: left;
+  }
+  td.right {
+    text-align: right;
+  }
+  td.center {
+    text-align: center;
+  }
+  tfoot td {
+    font-weight: bold;
   }
 }

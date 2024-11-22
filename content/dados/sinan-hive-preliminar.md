@@ -1,7 +1,5 @@
 ---
-title: "sinan-hive-preliminar"
+title: "SINAN-HIVE-PRELIMINAR"
 ---
 
 {{< remote-data-table "https://cdn.statically.io/gh/dankkom/datasus-metadata/main/metadata/data/sinan-hive-preliminar.json" >}}
-
-https://github.com/dankkom/datasus-metadata

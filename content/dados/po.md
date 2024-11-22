@@ -1,7 +1,5 @@
 ---
-title: "po"
+title: "PO"
 ---
 
 {{< remote-data-table "https://cdn.statically.io/gh/dankkom/datasus-metadata/main/metadata/data/po.json" >}}
-
-https://github.com/dankkom/datasus-metadata
