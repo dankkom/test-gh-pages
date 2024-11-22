@@ -7,10 +7,10 @@ menus:
     - name: 'Home'
       pageRef: '/'
       weight: 10
-    - name: 'Dados'
+    - name: 'Arquivos de Dados'
       pageRef: '/dados/'
       weight: 20
-    - name: 'Documentação'
+    - name: 'Arquivos de Documentação'
       pageRef: '/documentacao/'
       weight: 20
     - name: 'Arquivos Auxiliares'

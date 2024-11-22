@@ -9,6 +9,10 @@ body {
 header {
   border-bottom: 1px solid #222;
   margin-bottom: 1rem;
+  #site-title {
+    font-size: 2em;
+    margin: 0;
+  }
 }
 
 footer {
