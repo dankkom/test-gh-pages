@@ -18,7 +18,7 @@
     <tbody>
         {{ range $key, $value := $data.data }}
         <tr>
-            <td><a href="{{ $baseURL }}data/{{ $key }}">{{ $key }}</a></td>
+            <td><a href="{{ $baseURL }}dados/{{ $key }}">{{ $key }}</a></td>
             <td>{{ $value.n_files }}</td>
             <td>{{ $value.total_size | cast.ToString }}</td>
             <td>{{ $value.latest_update }}</td>

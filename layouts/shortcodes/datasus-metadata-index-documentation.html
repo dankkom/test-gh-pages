@@ -13,7 +13,7 @@
     <tbody>
         {{ range $key, $value := $data.documentation }}
         <tr>
-            <td><a href="{{ $baseURL }}documentation/{{ $key }}">{{ $key }}</a></td>
+            <td><a href="{{ $baseURL }}documentacao/{{ $key }}">{{ $key }}</a></td>
             <td>{{ $value.n_files }}</td>
             <td>{{ $value.total_size | cast.ToString }}</td>
             <td>{{ $value.latest_update }}</td>
