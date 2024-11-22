@@ -1,0 +1,28 @@
+{{ $url := index .Params 0 }}
+{{ $data := resources.GetRemote $url }}
+
+<table class="files-table">
+  <thead>
+    <tr>
+      <th>Arquivo</th>
+      <th>UF</th>
+      <th>Ano</th>
+      <th>Mês</th>
+      <th>Versão</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range $data | transform.Unmarshal }}
+    <tr>
+      <td>
+        ftp://ftp.datasus.gov.br{{ .full_path }}<br/>
+        <span>{{ .filename }}</span> | <time datetime="{{ .datetime }}">{{ .datetime }}</datetime> | <span>{{ .size | cast.ToString }} bytes</span>
+      </td>
+      <td>{{ .partition.uf | strings.ToUpper }}</td>
+      <td>{{ .partition.year }}</td>
+      <td>{{ .partition.month }}</td>
+      <td>{{ .partition.version }}</td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>

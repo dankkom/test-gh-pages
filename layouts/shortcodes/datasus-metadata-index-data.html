@@ -1,0 +1,33 @@
+{{ $data := resources.GetRemote "https://cdn.statically.io/gh/dankkom/datasus-metadata/main/metadata/index.json" | transform.Unmarshal }}
+{{ $baseURL := .Site.BaseURL }}
+
+<table>
+    <thead>
+        <tr>
+            <th>Dataset</th>
+            <th>Nº de Arquivos</th>
+            <th>Tamanho Total (bytes)</th>
+            <th>Última Atualização</th>
+            <th>Nº de UFs</th>
+            <th>Período Inicial</th>
+            <th>Período Final</th>
+            <th>Nº de Períodos</th>
+            <th>Periodicidade</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range $key, $value := $data.data }}
+        <tr>
+            <td><a href="{{ $baseURL }}data/{{ $key }}">{{ $key }}</a></td>
+            <td>{{ $value.n_files }}</td>
+            <td>{{ $value.total_size | cast.ToString }}</td>
+            <td>{{ $value.latest_update }}</td>
+            <td>{{ $value.partition_n_ufs }}</td>
+            <td>{{ $value.partition_period_start }}</td>
+            <td>{{ $value.partition_period_end }}</td>
+            <td>{{ $value.partition_n_periods }}</td>
+            <td>{{ $value.partition_periodicity }}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>

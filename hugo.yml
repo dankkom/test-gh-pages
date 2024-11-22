@@ -1,5 +1,23 @@
-baseURL: "https://dkko.me/test=gh-pages/"
+baseURL: "https://dkko.me/datasus-metadados/"
 languageCode: "pt-br"
-title: "Test GH Pages"
+title: "DATASUS Metadados"
 
-theme: ["PaperMod"]
+menus:
+  main:
+    - name: 'Home'
+      pageRef: '/'
+      weight: 10
+    - name: 'Dados'
+      pageRef: '/dados/'
+      weight: 20
+    - name: 'Documentação'
+      pageRef: '/documentacao/'
+      weight: 20
+    - name: 'Arquivos Auxiliares'
+      pageRef: '/auxiliares/'
+      weight: 20
+
+module:
+  hugoVersion:
+    extended: false
+    min: "0.116.0"

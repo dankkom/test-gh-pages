@@ -1,0 +1,23 @@
+{{ $data := resources.GetRemote "https://cdn.statically.io/gh/dankkom/datasus-metadata/main/metadata/index.json" | transform.Unmarshal }}
+{{ $baseURL := .Site.BaseURL }}
+
+<table>
+    <thead>
+        <tr>
+            <th>Dataset</th>
+            <th>Nº de Arquivos</th>
+            <th>Tamanho Total (bytes)</th>
+            <th>Última Atualização</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range $key, $value := $data.auxiliary }}
+        <tr>
+            <td><a href="{{ $baseURL }}auxiliary/{{ $key }}">{{ $key }}</a></td>
+            <td>{{ $value.n_files }}</td>
+            <td>{{ $value.total_size | cast.ToString }}</td>
+            <td>{{ $value.latest_update }}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>
